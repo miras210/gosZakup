@@ -21,7 +21,7 @@ public class App
                 .setLotName(input.getLotName())
                 .setLotPlan(input.getLotPlan())
                 .submitForm()
-                .collectData(50); // pass the number of needed rows
+                .collectData(50); // pass the number of output rows needed to save
         Base.tearDown();
     }
 }
