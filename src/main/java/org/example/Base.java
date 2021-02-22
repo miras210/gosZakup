@@ -2,12 +2,15 @@ package org.example;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Screenshots;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.google.common.io.Files;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.File;
@@ -37,16 +40,21 @@ public class Base {
         System.out.println();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
         */
-        ChromeOptions options = new ChromeOptions();
+        /*ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized"); // open Browser in maximized mode
         options.addArguments("disable-infobars"); // disabling infobars
         options.addArguments("--disable-gpu"); // applicable to windows os only
         options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-        options.addArguments("--no-sandbox"); // Bypass OS security model
+        options.addArguments("--no-sandbox"); // Bypass OS security model*/
         //options.addArguments("--headless");
         //Configuration.headless = true;
-        Configuration.startMaximized = true;
-        Configuration.baseUrl = "https://www.goszakup.gov.kz/ru/search";
+        Configuration.driverManagerEnabled = false;
+        //TODO change remote url ? Not sure will work or not
+        Configuration.remote = "http://localhost:4444/wd/hub";
+        /*Configuration.startMaximized = true;
+        Configuration.baseUrl = "https://www.goszakup.gov.kz/ru/search";*/
+
+        /*WebDriverRunner.setWebDriver(new ChromeDriver());*/
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
 
     }
