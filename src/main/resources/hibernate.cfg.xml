@@ -14,5 +14,6 @@
 
         <mapping class="org.example.dto.Input"/>
         <mapping class="org.example.dto.Output"/>
+        <mapping class="org.example.dto.Search"/>
     </session-factory>
 </hibernate-configuration>

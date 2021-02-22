@@ -45,7 +45,7 @@ public class MainPage {
             output.setLotNum(table.getTdInRowByColumnName(i, "№ лота").getText());
             output.setAdName(table.getTdInRowByColumnName(i, "Наименование объявления").$("a").getText());
             output.setLotDesc(table.getTdInRowByColumnName(i, "Наименование и описание лота").$("a").getText());
-            output.setCount(Integer.parseInt(table.getTdInRowByColumnName(i, "Кол-во").getText()));
+            output.setCount(Double.parseDouble(table.getTdInRowByColumnName(i, "Кол-во").getText()));
             output.setCost(Double.parseDouble(table.getTdInRowByColumnName(i, "Сумма, тг.").getText().replaceAll("\\s+", "")));
             output.setPurchaseType(table.getTdInRowByColumnName(i, "Способ закупки").getText());
             output.setStatus(table.getTdInRowByColumnName(i, "Статус").getText());

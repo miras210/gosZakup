@@ -21,7 +21,7 @@ public class Output {
 
     private String lotDesc;
 
-    private int count;
+    private double count;
 
     private double cost;
 

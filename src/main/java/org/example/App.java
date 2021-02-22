@@ -1,7 +1,10 @@
 package org.example;
 
 import org.example.dto.Input;
+import org.example.dto.Search;
 import org.example.pages.MainPage;
+import org.example.repository.InputRepository;
+import org.example.repository.SearchRepository;
 
 import java.io.IOException;
 
@@ -16,12 +19,12 @@ public class App
     public static void main( String[] args ) throws IOException {
         Base.MainTearUp();
         open("/lots");
-        Input input = ParseInput.parseInput("C:\\Users\\Miras\\Desktop\\КТЖ\\input.txt"); // change the input path
+        Search search = SearchRepository.getSearchById(151);
         new MainPage()
-                .setLotName(input.getLotName())
-                .setLotPlan(input.getLotPlan())
+                .setLotName(search.getLotName())
+                .setLotPlan(search.getLotPlan())
                 .submitForm()
-                .collectData(50); // pass the number of output rows needed to save
+                .collectData(10); // pass the number of output rows needed to save
         Base.tearDown();
     }
 }
